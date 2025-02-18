@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .slideshow-container {
+            max-width: 90%;
+            width: 500px;
+            position: relative;
+            margin: auto;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .affirmation {
+            font-size: 5vw;
+            margin-top: 20px;
+        }
+        .final-message {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        @media screen and (max-width: 600px) {
+            .slideshow-container {
+                width: 100%;
+            }
+            .affirmation {
+                font-size: 6vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, My Love! 🎉❤️</h1>
+    <p>You are the most beautiful, kind, and amazing person in my life.</p>
+
+    <div class="slideshow-container">
+        <img class="slide" src="gold/WhatsApp Image 2025-02-18 at 9.07.16 PM.jpeg" alt="Beautiful Memory 1">
+        <img class="slide" src="gold/WhatsApp Image 2025-02-18 at 9.06.42 PM.jpeg" alt="Beautiful Memory 2">
+        <img class="slide" src="gold/WhatsApp Image 2025-02-18 at 9.06.43 PM.jpeg" alt="Beautiful Memory 2">
+        <img class="slide" src="gold/WhatsApp Image 2025-02-18 at 9.06.41 PM.jpeg" alt="Beautiful Memory 2">
+        <video class="slide" src="gold/WhatsApp Video 2025-02-18 at 9.10.25 PM.mp4" controls></video>
+        <video class="slide" src="gold/WhatsApp Video 2025-02-18 at 9.12.49 PM.mp4" controls></video>
+        <video class="slide" src="gold/WhatsApp Video 2025-02-18 at 9.34.36 PM.mp4" controls></video>
+    </div>
+
+    <p class="affirmation">You make my world brighter every single day. 💕</p>
+    
+    <div class="final-message" id="finalMessage">
+        <p>Loving you has been a beautiful memory. Every day with you is a blessing, and I cherish every smile, every moment, and every memory we've created together. You are my heart, my happiness, and my greatest adventure. I can't wait to spend many more years loving you, growing with you, and making even more beautiful memories. ❤️</p>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.querySelectorAll(".slide");
+            let finalMessage = document.getElementById("finalMessage");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            if (slideIndex >= slides.length) {
+                finalMessage.style.display = "block";
+                return;
+            }
+            let currentSlide = slides[slideIndex];
+            currentSlide.style.display = "block";
+            
+            if (currentSlide.tagName === "VIDEO") {
+                currentSlide.play();
+                currentSlide.onended = function () {
+                    slideIndex++;
+                    setTimeout(showSlides, 2000);
+                };
+            } else {
+                setTimeout(function () {
+                    slideIndex++;
+                    showSlides();
+                }, 5000);
+            }
+        }
+        showSlides();
+    </script>
+</body>
+</html>
